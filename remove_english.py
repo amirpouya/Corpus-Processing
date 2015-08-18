@@ -36,8 +36,8 @@ remove_line_counter=0
 print 'Filtering process starts...'
 for i,line in enumerate(ar_lines):
     if filters.isArabic(line) and filters.isFarsi(fa_lines[i]):
-        fa_out_file.write(fa_lines[i]+'\r\n')
-        ar_out_file.write(ar_lines[i]+'\r\n')
+        fa_out_file.write(fa_lines[i])
+        ar_out_file.write(ar_lines[i])
     else:
         remove_line_counter+=1
 fa_out_file.close()
