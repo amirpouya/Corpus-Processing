@@ -2,13 +2,13 @@ __author__ = 'AmirPouya'
 from lxml import etree as ET
 import dic_builder
 import standard_xml_writer
+import sys
 
+source_file=sys.argv[1]
+target_file=sys.argv[2]
 
-#source_file=sys.argv[1]
-#target_file=sys.argv[2]
-
-source_file='source_p1.xml'
-target_file='target_p1.xml'
+#source_file='source_p1.xml'
+#target_file='target_p1.xml'
 out_file='test.xml'
 config={}
 config['corpus_name']='test'
