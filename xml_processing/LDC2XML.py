@@ -1,24 +1,36 @@
 __author__ = 'AmirPouya'
+#from lxml import etree as ET
 from lxml import etree as ET
 import dic_builder
 import standard_xml_writer
-import sys
+import sys,argparse
 
-source_file=sys.argv[1]
-target_file=sys.argv[2]
+#source_file=sys.argv[1]
+#target_file=sys.argv[2]
 
-#source_file='source_p1.xml'
-#target_file='target_p1.xml'
-out_file='test.xml'
+
+parser=argparse.ArgumentParser('python LDC2XML.py')
+parser.add_argument('--source','-s',required=True)
+parser.add_argument('--target','-t',required=True)
+parser.add_argument('--output','-o',required=True)
+parser.add_argument('--cname',required=True,default='corpus')
+parser.add_argument('--srclang',required=True,default='ar')
+parser.add_argument('-trglang',required=True,default='en')
+parser.add_argument('--desc')
+args=parser.parse_args()
+
+source_file=args.source
+target_file=args.target
+out_file=args.output
 config={}
-config['corpus_name']='test'
-config['source_lang']='ar'
-config['target_lang']='en'
-config['corpus_desc']=''
+config['corpus_name']=args.cname
+config['source_lang']=args.srclang
+config['target_lang']=args.trglang
+config['corpus_desc']=args.desc
 
-parser = ET.XMLParser(recover=True,encoding='utf-8' )
-source_tree=ET.parse(source_file,parser)
-target_tree=ET.parse(target_file,parser)
+xml_parser = ET.XMLParser(recover=True,encoding='utf-8' )
+source_tree=ET.parse(source_file,xml_parser)
+target_tree=ET.parse(target_file,xml_parser)
 
 
 source_root=source_tree.getroot()
