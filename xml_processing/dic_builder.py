@@ -21,7 +21,7 @@ def extract_dic(source_root):
                         else:
                             p_doc[int(seg_key)] = seg.text
                 source_doc[key] = p_doc
-        except:
+        except KeyError:
             print 'Error: Bad formed XML'
             exit(-1)
     return  source_doc
