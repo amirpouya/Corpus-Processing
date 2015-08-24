@@ -24,5 +24,8 @@ def extract_dic(source_root):
         except KeyError:
             print 'Error: Bad formed XML'
             exit(-1)
+        except UnicodeDecodeError:
+            print seg.text
+            exit(-1)
     return  source_doc
 
