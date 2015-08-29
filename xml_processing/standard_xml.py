@@ -37,7 +37,7 @@ def write(source_dic,target_dic,output_file,config):
 
         else:
             print "Doc not found", key
-    root.attrib['sent']=par_id
+    root.attrib['sent']=str(par_id)
     root.attrib['source_word']=source_word_count
     root.attrib['target_word']=target_word_count
     tree = ET.ElementTree(root)
