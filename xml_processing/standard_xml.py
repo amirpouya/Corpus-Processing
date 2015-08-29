@@ -65,6 +65,21 @@ def read_rawtext(source_file,target_file):
         target_dic[0][i]=line
     return (source_dic,target_dic)
 
+def read_cdecformat(file):
+    file=io.open(file,'r',encoding='utf-8')
+    lines=file.readlines()
+    file.close()
+    lines = filter(lambda x: not re.match(r'^\s*$', x), lines)
+    source_dic={}
+    source_dic[0]={}
+    target_dic={}
+    target_dic[0]={}
+    for i,line in enumerate(lines):
+        toks=line.split('|||')
+        target_dic[0][i]=toks[2]
+        source_dic[0][i]=toks[1]
+    return (source_dic,target_dic)
+
 
 
 
