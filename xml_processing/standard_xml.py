@@ -51,8 +51,8 @@ def read_standard(xml_file):
     source_lang=xml_root.attrib['source_lang']
     target_lang=xml_root.attrib['target_lang']
     par_list=xml_root.findall('p')
-    source_list=[[None]]*len(par_list)
-    target_list=[[None]]*len(par_list)
+    source_list=[[None]]*(len(par_list)+1)
+    target_list=[[None]]*(len(par_list)+1)
     for p in par_list:
         key=int(p.attrib['id'])
         children=p.getchildren()
