@@ -38,8 +38,8 @@ def write(source_dic,target_dic,output_file,config):
         else:
             print "Doc not found", key
     root.attrib['sent']=str(par_id)
-    root.attrib['source_word']=source_word_count
-    root.attrib['target_word']=target_word_count
+    root.attrib['source_word']=str(source_word_count)
+    root.attrib['target_word']=str(target_word_count)
     tree = ET.ElementTree(root)
     tree.write(output_file, pretty_print=True, encoding='utf-8', xml_declaration=True)
 
