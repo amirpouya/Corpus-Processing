@@ -25,8 +25,8 @@ def write(source_dic,target_dic,output_file,config):
                     target=target_dic[key][seg_key].strip()
                     src = ET.SubElement(par, 'source').text = source_dic[key][seg_key].strip()
                     trg = ET.SubElement(par, 'target').text = target_dic[key][seg_key].strip()
-                    t1=src.attrib['words']=len(source.split())
-                    t2=trg.attrib['words']=len(target.split())
+                    t1=src.attrib['words']=str(len(source.split()))
+                    t2=trg.attrib['words']=str(len(target.split()))
                     source_word_count+=t1
                     target_word_count+=t1
 
