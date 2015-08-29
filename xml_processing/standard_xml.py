@@ -12,6 +12,8 @@ def write(source_dic,target_dic,output_file,config):
     root.attrib['target_lang']=config['target_lang']
     root.attrib['create_date']=time.strftime("%d/%m/%Y")
     par_id = 1
+    source_word_count=0
+    target_word_count=0
     for key in sorted(source_dic.keys()):
         if target_dic.has_key(key):
             for seg_key in sorted(source_dic[key].keys()):
@@ -19,11 +21,20 @@ def write(source_dic,target_dic,output_file,config):
                     par = ET.SubElement(root, 'p')
                     par.attrib['id'] = str(par_id)
                     par_id += 1
+                    source=source_dic[key][seg_key].strip()
+                    target=target_dic[key][seg_key].strip()
+                    t1=src.attrib['words']=len(source.split())
+                    source_word_count+=t1
+                    t1=trg.attrib['words']=len(target.split())
+                    target_word_count+=t1
                     src = ET.SubElement(par, 'source').text = source_dic[key][seg_key].strip()
                     trg = ET.SubElement(par, 'target').text = target_dic[key][seg_key].strip()
 
         else:
             print "Doc not found", key
+    root.attrib['sent']=par_id
+    root.attrib['source_word']=source_word_count
+    root.attrib['target_word']=target_word_count
     tree = ET.ElementTree(root)
     tree.write(output_file, pretty_print=True, encoding='utf-8', xml_declaration=True)
 
