@@ -11,7 +11,6 @@ parser.add_argument('-trglang',required=True,default='en')
 args=parser.parse_args()
 
 file=args.input
-target_file=args.target
 out_file=args.output
 config={}
 config['corpus_name']=args.cname
