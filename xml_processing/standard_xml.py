@@ -23,8 +23,10 @@ def write(source_dic,target_dic,output_file,config):
                     par_id += 1
                     source=source_dic[key][seg_key].strip()
                     target=target_dic[key][seg_key].strip()
-                    src = ET.SubElement(par, 'source').text = source_dic[key][seg_key].strip()
-                    trg = ET.SubElement(par, 'target').text = target_dic[key][seg_key].strip()
+                    src = ET.SubElement(par, 'source')
+                    src.text = source_dic[key][seg_key].strip()
+                    trg = ET.SubElement(par, 'target')
+                    trg.text = target_dic[key][seg_key].strip()
                     t1=(len(source.split()))
                     src.attrib['words']=str(t1)
                     t2=(len(target.split()))
