@@ -9,7 +9,8 @@ def extract_dic(source_root):
             key = doc.attrib['docid']
             if source_doc.has_key(key):
                 print 'Dublicate doc', key
-                exit(-1)
+                source_doc.pop(key)
+                #exit(-1)
             else:
                 p_doc = {}
                 for child in doc.getchildren():
