@@ -4,9 +4,10 @@ import sys
 import standard_xml
 import io
 
+
 def writer(file,dic):
-    for key in sorted(int(dic.keys())):
-        file.writle(dic[key].strip()+"\n")
+    for line in dic:
+        file.write(unicode(line+"\n"))
     file.close()
 
 try:
@@ -26,5 +27,5 @@ data=""
 source_file=io.open(input_file+'.'+source_lang,'w',encoding='utf-8')
 target_file=io.open(input_file+'.'+target_lang,'w',encoding='utf-8')
 
-writer(source_file,source_dic)
-writer(target_file,target_dic)
+writer(source_file,source_dic[1:])
+writer(target_file,target_dic[1:])
