@@ -47,6 +47,9 @@ def read_standard(xml_file):
     xml_parser = ET.XMLParser(recover=True,encoding='utf-8',resolve_entities=True )
     xml_tree=ET.parse(xml_file,xml_parser)
     xml_root=xml_tree.getroot()
+    title=xml_root.attrib['title']
+    source_lang=xml_root.attrib['source_lang']
+    target_lang=xml_root.attrib['target_lang']
     par_list=xml_root.findall('p')
     source_list=[[None]]*len(par_list)
     target_list=[[None]]*len(par_list)
@@ -57,7 +60,7 @@ def read_standard(xml_file):
         target=children[1].text
         source_list[key]=source
         target_list[key]=target
-    return (source_list,target_list)
+    return (title,source_lang,target_lang,source_list,target_list)
 
 def read_rawtext(source_file,target_file):
     source_file=io.open(source_file,'r',encoding='utf-8')
