@@ -32,7 +32,7 @@ def write(source_dic,target_dic,output_file,config):
                     t2=(len(target.split()))
                     trg.attrib['words']=str(t2)
                     source_word_count+=t1
-                    target_word_count+=t1
+                    target_word_count+=t2
 
 
         else:
