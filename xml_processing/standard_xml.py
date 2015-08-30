@@ -69,8 +69,8 @@ def read_rawtext(source_file,target_file):
     target_line=target_file.readlines()
     source_file.close()
     target_file.close()
-    source_line = filter(lambda x: not re.match(r'^\s*$', x), source_line)
-    target_line = filter(lambda x: not re.match(r'^\s*$', x), target_line)
+    #source_line = filter(lambda x: not re.match(r'^\s*$', x), source_line)
+    #target_line = filter(lambda x: not re.match(r'^\s*$', x), target_line)
     if len(source_line) != len(target_line):
         print  'src,tag',len(source_line) , len(target_line)
         raise TypeError('Incorrect file lines')
